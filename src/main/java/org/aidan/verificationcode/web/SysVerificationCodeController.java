@@ -28,13 +28,8 @@ public class SysVerificationCodeController {
     @GetMapping
     public Map<String, Object> hello() {
         Map<String, Object> resp = new HashMap<>();
-        SysVerificationCode sysVerificationCode = new SysVerificationCode();
-        sysVerificationCode.setVerificationCode("156fds");
-        boolean insert = sysVerificationCodeService.insert(sysVerificationCode);
         resp.put("code", "000000");
-        resp.put("insert", insert);
         List<SysVerificationCode> svc = sysVerificationCodeService.findByCode("156fds");
-
         resp.put("sysVerificationCode", svc);
         return resp;
     }

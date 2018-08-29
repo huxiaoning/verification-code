@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.aidan.verificationcode.mapper.SysVerificationCodeMapper">
+
+	<resultMap id="BaseResultMap" type="org.aidan.verificationcode.entity.SysVerificationCode">
+		<id column="id" property="id" />
+		<result column="verification_code" property="verificationCode" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, verification_code AS verificationCode
+    </sql>
+	<select id="findByCode" resultType="org.aidan.verificationcode.entity.SysVerificationCode">
+		select * from sys_verification_code a where a.verification_code = #{verificationCode}
+	</select>
+</mapper>
